@@ -9,3 +9,4 @@ const terminal=document.querySelector('.terminal-panel');
 const terminalToggle=document.querySelector('.terminal-toggle');
 terminalToggle?.addEventListener('click',()=>{terminal.hidden=!terminal.hidden;terminalToggle.classList.toggle('active',!terminal.hidden)});
 document.querySelectorAll('.code-input').forEach((input,index)=>input.addEventListener('keydown',event=>{if(event.key==='Enter'&&event.metaKey){event.preventDefault();const line=document.createElement('div');line.className='terminal-line';line.innerHTML='<span class="prompt">›</span> '+input.value.replace(/</g,'&lt;');terminal.querySelector('.terminal-history').append(line);input.value='';terminal.hidden=false}}));
+document.querySelector('.terminal-close')?.addEventListener('click',()=>{terminal.hidden=true;terminalToggle?.classList.remove('active')});
